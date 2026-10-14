@@ -1,37 +1,34 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-void arrow(int len, int len1, int len2)
+void analyze(int a, int b, int c, int& mysum, int& myproduct, int& mymax)
 {
-    cout << ">>";
-    for (int i = 0; i < len; i++)
+    if (a >= b && a >= c)
     {
-        cout << "-";
+        mymax = a;
     }
-    cout << ">";
-    cout << endl;
-    cout << ">>";
-    for (int i = 0; i < len1; i++)
+    else if (b > a && b > c)
     {
-        cout << "-";
+        mymax = b;
     }
-    cout << ">";
-    cout << endl;
-    cout << ">>";
-    for (int i = 0; i < len2; i++)
+    else
     {
-        cout << "-";
+        mymax = c;
     }
-    cout << ">";
-    cout << endl;
+
+    myproduct = a*b*c;
+
+    mysum = a+b+c;
 }
 
 int main()
 {
-    int len, len1, len2;
-    cin >> len;
-    cin >> len1;
-    cin >> len2;
-    arrow(len, len1, len2);
+    int a, b, c;
+    cout << "Введите три числа: ";
+    cin >> a >> b >> c;
+    cout << "Введено: " << a << ", " << b << ", " << c << endl;
+
+    int mysum = 0, myproduct = 0, mymax = 0;
+    analyze(a, b, c, mysum, myproduct, mymax);
+    cout << "Сумма: " << mysum << endl << "Произведение: " << myproduct << endl << "Максимум: " << mymax << endl;
 }
